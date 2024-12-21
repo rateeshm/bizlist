@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star, Bookmark } from "lucide-react";
+import { Star, Bookmark, DollarSign } from "lucide-react";
 import type { Tool } from "@/data/tools";
 
 interface ToolCardProps {
@@ -8,11 +8,35 @@ interface ToolCardProps {
 }
 
 const ToolCard = ({ tool }: ToolCardProps) => {
+  const getPricingIcons = (pricing: string) => {
+    switch (pricing) {
+      case "Budget":
+        return <DollarSign className="h-4 w-4 text-green-600" />;
+      case "Moderate":
+        return (
+          <div className="flex">
+            <DollarSign className="h-4 w-4 text-green-600" />
+            <DollarSign className="h-4 w-4 text-green-600" />
+          </div>
+        );
+      case "Premium":
+        return (
+          <div className="flex">
+            <DollarSign className="h-4 w-4 text-green-600" />
+            <DollarSign className="h-4 w-4 text-green-600" />
+            <DollarSign className="h-4 w-4 text-green-600" />
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:animate-card-hover">
       <div className="flex justify-between items-start">
         <div className="flex items-center gap-4">
-          <img src={tool.logo} alt={tool.name} className="w-12 h-12 rounded-lg" />
+          <img src={tool.logo} alt={tool.name} className="w-12 h-12 rounded-lg object-cover" />
           <div>
             <h3 className="font-semibold text-lg">{tool.name}</h3>
             <div className="flex items-center gap-1">
@@ -30,11 +54,12 @@ const ToolCard = ({ tool }: ToolCardProps) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col items-end gap-2">
           <span className="text-sm text-gray-500">
             <Bookmark className="h-4 w-4 inline mr-1" />
             {tool.bookmarks}
           </span>
+          {getPricingIcons(tool.pricing)}
         </div>
       </div>
       
@@ -57,7 +82,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
           className="flex-1"
           onClick={() => window.open(tool.visitUrl, "_blank")}
         >
-          Visit
+          Visit Website
         </Button>
         {tool.dealUrl && (
           <Button
@@ -65,7 +90,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
             className="flex-1"
             onClick={() => window.open(tool.dealUrl, "_blank")}
           >
-            Get Deal
+            Special Offer
           </Button>
         )}
       </div>

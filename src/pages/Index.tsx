@@ -23,7 +23,8 @@ const Index = () => {
 
   return (
     <div className="container py-8">
-      <h1 className="text-4xl font-bold mb-8">AI Tools Directory</h1>
+      <h1 className="text-4xl font-bold mb-2">Local Business Directory</h1>
+      <p className="text-gray-600 mb-8">Discover and connect with local businesses in your area</p>
       
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <aside className="lg:col-span-1">
@@ -38,7 +39,7 @@ const Index = () => {
           
           {featuredTools.length > 0 && (
             <>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">Featured Tools</h2>
+              <h2 className="text-2xl font-semibold mt-8 mb-4">Featured Businesses</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {featuredTools.map((tool) => (
                   <ToolCard key={tool.id} tool={tool} />
@@ -47,7 +48,7 @@ const Index = () => {
             </>
           )}
           
-          <h2 className="text-2xl font-semibold mt-8 mb-4">All Tools</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">All Businesses</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {regularTools.map((tool) => (
               <ToolCard key={tool.id} tool={tool} />
@@ -56,7 +57,7 @@ const Index = () => {
           
           {filteredTools.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500">No tools found matching your criteria.</p>
+              <p className="text-gray-500">No businesses found matching your criteria.</p>
             </div>
           )}
         </main>
