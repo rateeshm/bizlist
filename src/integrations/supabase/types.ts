@@ -9,7 +9,168 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      businesses: {
+        Row: {
+          address: string | null
+          category: string
+          created_at: string
+          description: string | null
+          email: string | null
+          id: string
+          languages: string[] | null
+          logo_url: string | null
+          name: string
+          owner_id: string
+          phone: string | null
+          pricing: string | null
+          rating: number | null
+          reviews: number | null
+          working_hours: string | null
+        }
+        Insert: {
+          address?: string | null
+          category: string
+          created_at?: string
+          description?: string | null
+          email?: string | null
+          id?: string
+          languages?: string[] | null
+          logo_url?: string | null
+          name: string
+          owner_id: string
+          phone?: string | null
+          pricing?: string | null
+          rating?: number | null
+          reviews?: number | null
+          working_hours?: string | null
+        }
+        Update: {
+          address?: string | null
+          category?: string
+          created_at?: string
+          description?: string | null
+          email?: string | null
+          id?: string
+          languages?: string[] | null
+          logo_url?: string | null
+          name?: string
+          owner_id?: string
+          phone?: string | null
+          pricing?: string | null
+          rating?: number | null
+          reviews?: number | null
+          working_hours?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "businesses_owner_id_fkey"
+            columns: ["owner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          business_id: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          price: number | null
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          price?: number | null
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          business_name: string | null
+          contact_email: string | null
+          created_at: string
+          id: string
+          phone: string | null
+        }
+        Insert: {
+          business_name?: string | null
+          contact_email?: string | null
+          created_at?: string
+          id: string
+          phone?: string | null
+        }
+        Update: {
+          business_name?: string | null
+          contact_email?: string | null
+          created_at?: string
+          id?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          business_id: string
+          created_at: string
+          description: string | null
+          duration: string | null
+          id: string
+          name: string
+          price: number | null
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          description?: string | null
+          duration?: string | null
+          id?: string
+          name: string
+          price?: number | null
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          description?: string | null
+          duration?: string | null
+          id?: string
+          name?: string
+          price?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "services_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
