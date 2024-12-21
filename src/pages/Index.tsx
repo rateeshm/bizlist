@@ -27,11 +27,18 @@ const Index = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-16 animate-fade-in">
-          <div>
-            <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
-            <p className="text-xl text-amber-700">
-              Connect with authentic Arabian businesses and traders in your local area
-            </p>
+          <div className="flex items-center gap-6">
+            <img 
+              src="/lovable-uploads/1979f394-4ab2-4d92-a9ac-25ecaab00186.png" 
+              alt="Arabian Trade Hub Logo" 
+              className="w-16 h-16"
+            />
+            <div>
+              <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
+              <p className="text-xl text-amber-700">
+                Connect with authentic Arabian businesses and traders in your local area
+              </p>
+            </div>
           </div>
           <Link to="/login">
             <Button className="bg-amber-600 hover:bg-amber-700 text-white">
