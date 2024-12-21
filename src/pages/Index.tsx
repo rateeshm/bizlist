@@ -22,45 +22,61 @@ const Index = () => {
   const regularTools = filteredTools.filter(tool => !tool.featured);
 
   return (
-    <div className="container py-8">
-      <h1 className="text-4xl font-bold mb-2">Arabian Trade Hub</h1>
-      <p className="text-gray-600 mb-8">Connect with authentic Arabian businesses and traders in your local area</p>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <aside className="lg:col-span-1">
-          <CategoryFilter
-            selectedCategory={selectedCategory}
-            onSelectCategory={setSelectedCategory}
-          />
-        </aside>
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
+          <p className="text-xl text-amber-700 max-w-2xl mx-auto">
+            Connect with authentic Arabian businesses and traders in your local area
+          </p>
+        </div>
         
-        <main className="lg:col-span-3">
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <aside className="lg:col-span-1">
+            <div className="sticky top-4 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg animate-fade-in">
+              <CategoryFilter
+                selectedCategory={selectedCategory}
+                onSelectCategory={setSelectedCategory}
+              />
+            </div>
+          </aside>
           
-          {featuredTools.length > 0 && (
-            <>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">Featured Businesses</h2>
+          <main className="lg:col-span-3 space-y-8 animate-fade-in">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            </div>
+            
+            {featuredTools.length > 0 && (
+              <div className="space-y-6">
+                <h2 className="text-3xl font-semibold text-amber-900 pl-4 border-l-4 border-amber-500">
+                  Featured Businesses
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {featuredTools.map((tool) => (
+                    <ToolCard key={tool.id} tool={tool} />
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            <div className="space-y-6">
+              <h2 className="text-3xl font-semibold text-amber-900 pl-4 border-l-4 border-amber-500">
+                All Businesses
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {featuredTools.map((tool) => (
+                {regularTools.map((tool) => (
                   <ToolCard key={tool.id} tool={tool} />
                 ))}
               </div>
-            </>
-          )}
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">All Businesses</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {regularTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-          
-          {filteredTools.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-gray-500">No businesses found matching your criteria.</p>
+              
+              {filteredTools.length === 0 && (
+                <div className="text-center py-12 bg-white/80 backdrop-blur-sm rounded-xl">
+                  <p className="text-amber-700 text-lg">No businesses found matching your criteria.</p>
+                </div>
+              )}
             </div>
-          )}
-        </main>
+          </main>
+        </div>
       </div>
     </div>
   );

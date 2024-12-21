@@ -72,6 +72,19 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-amber-50 to-orange-50 min-h-screen text-foreground;
+    background-attachment: fixed;
   }
+}
+
+.business-card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.category-button {
+  @apply transition-all duration-300 hover:bg-amber-100 hover:text-amber-900;
+}
+
+.search-input {
+  @apply transition-all duration-300 focus:ring-2 focus:ring-amber-200;
 }
