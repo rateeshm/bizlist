@@ -24,40 +24,46 @@ const Index = () => {
   const regularTools = filteredTools.filter(tool => !tool.featured);
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-16 animate-fade-in">
-          <div className="flex items-center gap-6">
-            <img 
-              src="/lovable-uploads/1979f394-4ab2-4d92-a9ac-25ecaab00186.png" 
-              alt="Arabian Trade Hub Logo" 
-              className="w-16 h-16"
-            />
-            <div>
-              <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
-              <p className="text-xl text-amber-700">
-                Connect with authentic Arabian businesses and traders in your local area
-              </p>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-start mb-16 animate-fade-in">
+            <div className="flex flex-col items-center text-center w-full">
+              <img 
+                src="/lovable-uploads/4bcaf807-79e3-46c8-89aa-e35a867a2259.png" 
+                alt="Arabian Trade Hub Logo" 
+                className="w-32 h-32 mb-6"
+              />
+              <div className="max-w-3xl">
+                <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
+                <p className="text-xl text-amber-700 mb-4">
+                  YOUR GATEWAY TO ARABIAN COMMERCE
+                </p>
+                <p className="text-lg text-gray-700 mb-8">
+                  Welcome to Arabian Trade Hub – your premier destination for Arabian commerce! Our platform connects authentic businesses with customers, streamlining trade across the Arabian market. With features like detailed business profiles, product showcases, and seamless communication channels, you'll always stay connected with the vibrant Arabian business community. Whether you're discovering local traders, exploring unique products, or expanding your business reach, Arabian Trade Hub has you covered. Join us today and experience Arabian commerce redefined!
+                </p>
+              </div>
+            </div>
+            <div className="absolute top-8 right-8">
+              <Link to="/login">
+                <Button className="bg-amber-600 hover:bg-amber-700 text-white">
+                  Login / Register
+                </Button>
+              </Link>
             </div>
           </div>
-          <Link to="/login">
-            <Button className="bg-amber-600 hover:bg-amber-700 text-white">
-              Login / Register
-            </Button>
-          </Link>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <aside className="lg:col-span-1">
-            <div className="sticky top-4 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg animate-fade-in">
-              <CategoryFilter
-                selectedCategory={selectedCategory}
-                onSelectCategory={setSelectedCategory}
-              />
-            </div>
-          </aside>
           
-          <main className="lg:col-span-3 space-y-8 animate-fade-in">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <aside className="lg:col-span-1">
+              <div className="sticky top-4 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg animate-fade-in">
+                <CategoryFilter
+                  selectedCategory={selectedCategory}
+                  onSelectCategory={setSelectedCategory}
+                />
+              </div>
+            </aside>
+            
+            <main className="lg:col-span-3 space-y-8 animate-fade-in">
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
               <SearchBar value={searchQuery} onChange={setSearchQuery} />
             </div>
@@ -91,9 +97,44 @@ const Index = () => {
                 </div>
               )}
             </div>
-          </main>
+            </main>
+          </div>
         </div>
       </div>
+
+      <footer className="bg-amber-50 border-t border-amber-100 py-12 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-amber-900 mb-4">Contact Us</h3>
+              <ul className="space-y-2 text-amber-700">
+                <li>Email: contact@arabiantradehub.com</li>
+                <li>Phone: +971 4 123 4567</li>
+                <li>Address: Dubai Business Bay, UAE</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-amber-900 mb-4">Business Hours</h3>
+              <ul className="space-y-2 text-amber-700">
+                <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
+                <li>Saturday: 10:00 AM - 4:00 PM</li>
+                <li>Sunday: Closed</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-amber-900 mb-4">Follow Us</h3>
+              <ul className="space-y-2 text-amber-700">
+                <li>LinkedIn: Arabian Trade Hub</li>
+                <li>Twitter: @ArabianTradeHub</li>
+                <li>Instagram: @arabiantradehub</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-amber-200 text-center text-amber-600">
+            <p>&copy; 2024 Arabian Trade Hub. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
