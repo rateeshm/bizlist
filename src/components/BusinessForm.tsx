@@ -36,7 +36,13 @@ const BusinessForm = () => {
           .single();
 
         if (business) {
-          reset(business);
+          // Ensure pricing is one of the allowed values
+          const formattedBusiness = {
+            ...business,
+            pricing: (business.pricing as "Budget" | "Moderate" | "Premium") || "Moderate",
+            languages: business.languages || []
+          };
+          reset(formattedBusiness);
         }
       }
       setLoading(false);
