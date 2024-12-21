@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star, Bookmark, DollarSign } from "lucide-react";
+import { Star, Bookmark, DollarSign, Clock, Phone, Mail, Globe, Languages } from "lucide-react";
 import type { Tool } from "@/data/tools";
 
 interface ToolCardProps {
@@ -64,6 +64,24 @@ const ToolCard = ({ tool }: ToolCardProps) => {
       </div>
       
       <p className="mt-4 text-gray-600">{tool.description}</p>
+      
+      <div className="mt-4 space-y-2 text-sm text-gray-600">
+        <p><Clock className="h-4 w-4 inline mr-2" />{tool.workingHours}</p>
+        <p><Phone className="h-4 w-4 inline mr-2" />{tool.phone}</p>
+        <p><Mail className="h-4 w-4 inline mr-2" />{tool.email}</p>
+        <p><Languages className="h-4 w-4 inline mr-2" />{tool.languages.join(", ")}</p>
+      </div>
+      
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tool.specialties.map((specialty) => (
+          <span
+            key={specialty}
+            className="text-sm px-2 py-1 bg-amber-50 text-amber-600 rounded-full"
+          >
+            {specialty}
+          </span>
+        ))}
+      </div>
       
       <div className="mt-4 flex flex-wrap gap-2">
         {tool.tags.map((tag) => (

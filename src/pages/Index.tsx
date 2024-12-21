@@ -23,8 +23,8 @@ const Index = () => {
 
   return (
     <div className="container py-8">
-      <h1 className="text-4xl font-bold mb-2">Local Business Directory</h1>
-      <p className="text-gray-600 mb-8">Discover and connect with local businesses in your area</p>
+      <h1 className="text-4xl font-bold mb-2">Arabian Trade Hub</h1>
+      <p className="text-gray-600 mb-8">Connect with authentic Arabian businesses and traders in your local area</p>
       
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <aside className="lg:col-span-1">
