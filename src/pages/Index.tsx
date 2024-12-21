@@ -27,29 +27,31 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-start mb-16 animate-fade-in">
-            <div className="flex flex-col items-center text-center w-full">
-              <img 
-                src="/lovable-uploads/4bcaf807-79e3-46c8-89aa-e35a867a2259.png" 
-                alt="Arabian Trade Hub Logo" 
-                className="w-32 h-32 mb-6"
-              />
-              <div className="max-w-3xl">
-                <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
-                <p className="text-xl text-amber-700 mb-4">
-                  YOUR GATEWAY TO ARABIAN COMMERCE
-                </p>
-                <p className="text-lg text-gray-700 mb-8">
-                  Welcome to Arabian Trade Hub – your premier destination for Arabian commerce! Our platform connects authentic businesses with customers, streamlining trade across the Arabian market. With features like detailed business profiles, product showcases, and seamless communication channels, you'll always stay connected with the vibrant Arabian business community. Whether you're discovering local traders, exploring unique products, or expanding your business reach, Arabian Trade Hub has you covered. Join us today and experience Arabian commerce redefined!
-                </p>
+          <div className="mb-16 animate-fade-in">
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-8">
+                <img 
+                  src="/lovable-uploads/4bcaf807-79e3-46c8-89aa-e35a867a2259.png" 
+                  alt="Arabian Trade Hub Logo" 
+                  className="w-48 h-48"
+                />
+                <div className="flex flex-col">
+                  <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
+                  <p className="text-xl text-amber-700">
+                    YOUR GATEWAY TO ARABIAN COMMERCE
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="absolute top-8 right-8">
-              <Link to="/login">
+              <Link to="/login" className="absolute top-8 right-8">
                 <Button className="bg-amber-600 hover:bg-amber-700 text-white">
                   Login / Register
                 </Button>
               </Link>
+            </div>
+            <div className="mt-8">
+              <p className="text-lg text-gray-700">
+                Welcome to Arabian Trade Hub – your premier destination for Arabian commerce! Our platform connects authentic businesses with customers, streamlining trade across the Arabian market. With features like detailed business profiles, product showcases, and seamless communication channels, you'll always stay connected with the vibrant Arabian business community. Whether you're discovering local traders, exploring unique products, or expanding your business reach, Arabian Trade Hub has you covered. Join us today and experience Arabian commerce redefined!
+              </p>
             </div>
           </div>
           
