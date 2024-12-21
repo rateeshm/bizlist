@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchBar from "@/components/SearchBar";
 import CategoryFilter from "@/components/CategoryFilter";
 import ToolCard from "@/components/ToolCard";
 import { tools } from "@/data/tools";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,11 +26,18 @@ const Index = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
-          <p className="text-xl text-amber-700 max-w-2xl mx-auto">
-            Connect with authentic Arabian businesses and traders in your local area
-          </p>
+        <div className="flex justify-between items-center mb-16 animate-fade-in">
+          <div>
+            <h1 className="text-5xl font-bold text-amber-900 mb-4">Arabian Trade Hub</h1>
+            <p className="text-xl text-amber-700">
+              Connect with authentic Arabian businesses and traders in your local area
+            </p>
+          </div>
+          <Link to="/login">
+            <Button className="bg-amber-600 hover:bg-amber-700 text-white">
+              Login / Register
+            </Button>
+          </Link>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
